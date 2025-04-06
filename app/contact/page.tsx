@@ -8,12 +8,16 @@ import DOMPurify from "dompurify"
 import { motion } from "framer-motion"
 import { logger } from "@/lib/logger"
 import { Suspense } from "react"
+import ContactClient from "@/components/contact-client"
 
 function Page() {
   return (
-    <Suspense fallback={<div>Carregando...</div>}>
-      <Contact />
-    </Suspense>
+    <div>
+      <h1>Página de Contato</h1>
+      <Suspense fallback={<div>Carregando...</div>}>
+        <ContactClient />
+      </Suspense>
+    </div>
   )
 }
 
