@@ -3,13 +3,10 @@
 import { useSearchParams } from 'next/navigation'
 
 export default function NotFoundClient() {
-  const params = useSearchParams()
-  const from = params.get('from') ?? 'desconhecido'
+  const searchParams = useSearchParams()
+  const from = searchParams.get('from') ?? 'desconhecido'
 
   return (
-    <div>
-      <h2>Página não encontrada</h2>
-      <p>Origem: {from}</p>
-    </div>
+    <p className="text-sm text-gray-500">Origem: {from}</p>
   )
 }
