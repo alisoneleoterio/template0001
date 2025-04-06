@@ -7,6 +7,15 @@ import ReCAPTCHA from "react-google-recaptcha"
 import DOMPurify from "dompurify"
 import { motion } from "framer-motion"
 import { logger } from "@/lib/logger"
+import { Suspense } from "react"
+
+function Page() {
+  return (
+    <Suspense fallback={<div>Carregando...</div>}>
+      <Contact />
+    </Suspense>
+  )
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,7 +29,7 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState("")
   const [recaptchaToken, setRecaptchaToken] = useState(null)
-  const recaptchaRef = useRef(null)
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null)
 
   // Inicializar EmailJS
 
