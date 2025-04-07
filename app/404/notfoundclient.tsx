@@ -1,12 +1,17 @@
-'use client'
+import { Suspense } from 'react'
+import NotFoundClient from './notfoundclient'
 
-import { useSearchParams } from 'next/navigation'
+export const dynamic = 'force-dynamic' // Evita erro com useSearchParams()
 
-export default function NotFoundClient() {
-  const searchParams = useSearchParams()
-  const from = searchParams.get('from') ?? 'desconhecido'
-
+export default function NotFoundPage() {
   return (
-    <p className="text-sm text-gray-500">Origem: {from}</p>
+    <div className="min-h-screen flex flex-col justify-center items-center p-4 text-center">
+      <h1 className="text-4xl font-bold">Página não encontrada</h1>
+      <p className="text-lg mt-2">A página que você procura não existe.</p>
+
+      <Suspense fallback={null}>
+        <NotFoundClient />
+      </Suspense>
+    </div>
   )
 }
