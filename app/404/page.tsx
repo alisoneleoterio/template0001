@@ -2,6 +2,9 @@
 
 import { useSearchParams } from 'next/navigation'
 
+// 👇 força renderização no cliente (impede erro de prerender)
+export const dynamic = 'force-dynamic'
+
 export default function NotFoundPage() {
   const params = useSearchParams()
   const search = params.get('query') || 'nada encontrado'
