@@ -1,10 +1,9 @@
 // app/404/page.tsx
-
 export default function NotFoundPage() {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center p-4 text-center">
-      <h1 className="text-4xl font-bold">Página não encontrada</h1>
-      <p className="text-lg mt-2">A página que você procura não existe.</p>
+    <div className="p-4">
+      <h1 className="text-2xl font-bold text-red-600">Página não encontrada</h1>
+      <p className="mt-2 text-gray-600">A URL acessada não corresponde a nenhuma página do site.</p>
     </div>
-  );
+  )
 }
