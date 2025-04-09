@@ -8,7 +8,7 @@ import DOMPurify from "dompurify"
 import { motion } from "framer-motion"
 import { logger } from "@/lib/logger"
 import { Suspense } from "react"
-import ContactClient from "@/components/contact-client"
+import ContactClient from "../../components/contact-client"
 
 function Page() {
   return (
@@ -32,7 +32,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState("")
-  const [recaptchaToken, setRecaptchaToken] = useState(null)
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null)
   const recaptchaRef = useRef<ReCAPTCHA | null>(null)
 
   // Inicializar EmailJS
@@ -44,8 +44,8 @@ export default function Contact() {
     setFormData((prev: typeof formData) => ({ ...prev, [name]: sanitizedValue }))
   }
 
-  const handleRecaptchaChange = (token) => {
-    setRecaptchaToken(token)
+  const handleRecaptchaChange = (token: string | null): void => {
+      setRecaptchaToken(token)
   }
 
   // Limitação de taxa para envios de formulário
